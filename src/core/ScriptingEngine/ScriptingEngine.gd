@@ -1,4 +1,4 @@
-﻿# This class contains all the functionality required to perform
+# This class contains all the functionality required to perform
 # full rules enforcement on any card.
 #
 # The automation is based on [ScriptTask]s. Each such "task" performs a very specific

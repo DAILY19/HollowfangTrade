@@ -1,4 +1,4 @@
-﻿# A basic card object which includes functionality for handling its own
+# A basic card object which includes functionality for handling its own
 # placement and focus.
 #
 # This class is meant to be used as the basis for your card scripting

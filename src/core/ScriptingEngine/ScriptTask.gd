@@ -1,4 +1,4 @@
-﻿# This contains information about one specific task requested by the card
+# This contains information about one specific task requested by the card
 # automation
 #
 # It also contains methods to return properties of the task and to find

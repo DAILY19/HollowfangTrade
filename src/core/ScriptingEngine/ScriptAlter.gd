@@ -1,4 +1,4 @@
-﻿# This contains information about one specific alteration requested by the card
+# This contains information about one specific alteration requested by the card
 # automation
 class_name ScriptAlter
 extends ScriptObject

@@ -1,4 +1,4 @@
-﻿# This class is responsible for looking up the amount of per count
+# This class is responsible for looking up the amount of per count
 # that has been requested in a [ScripTask](#ScriptTask)
 class_name ScriptPer
 extends ScriptObject
