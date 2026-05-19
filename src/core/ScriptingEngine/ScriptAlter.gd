@@ -1,4 +1,4 @@
-# This contains information about one specific alteration requested by the card
+﻿# This contains information about one specific alteration requested by the card
 # automation
 class_name ScriptAlter
 extends ScriptObject
@@ -38,16 +38,16 @@ func _init(
 				script_definition,
 				owner.canonical_name,
 				script_name)
-		if confirm_return is GDScriptFunctionState: # Still working.
-			confirm_return = yield(confirm_return, "completed")
+		if confirm_return is Signal: # Still working.
+			confirm_return = await confirm_return
 		is_valid = confirm_return
 	if is_valid:
 		# The alterant might require counting other cards to see if it's valid.
 		# So we just run it through the _find_subjects() to see if it will
 		# set is_valid to false.
 		var ret =_find_subjects(0)
-		if ret is GDScriptFunctionState: # Still working.
-			ret = yield(ret, "completed")
+		if ret is Signal: # Still working.
+			ret = await ret
 	# We emit a signal when done so that our ScriptingEngine
 	# knows we're ready to continue
 	is_primed = true

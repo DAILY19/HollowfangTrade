@@ -1,4 +1,4 @@
-# This class is responsible for looking up the amount of per count
+﻿# This class is responsible for looking up the amount of per count
 # that has been requested in a [ScripTask](#ScriptTask)
 class_name ScriptPer
 extends ScriptObject
@@ -16,8 +16,8 @@ func _init(per_msg: perMessage).(
 	else:
 		prev_subjects = per_msg.subjects
 	var ret = _find_subjects()
-	if ret is GDScriptFunctionState: # Still working.
-		ret = yield(ret, "completed")
+	if ret is Signal: # Still working.
+		ret = await ret
 	# We emit a signal when done so that our ScriptingEngine
 	# knows we're ready to continue
 	emit_signal("primed")

@@ -3,13 +3,13 @@ extends CardFront
 var _monster_art_loaded := false
 
 func _ready() -> void:
-	_card_text = find_node("CardText")
-	card_labels["Name"] = find_node("Name")
-	card_labels["Type"] = find_node("Type")
-	card_labels["Abilities"] = find_node("Abilities")
-	card_labels["Cost"] = find_node("Cost")
-	card_labels["Attack"] = find_node("Attack")
-	card_labels["HP"] = find_node("HP")
+	_card_text = find_child("CardText")
+	card_labels["Name"] = find_child("Name")
+	card_labels["Type"] = find_child("Type")
+	card_labels["Abilities"] = find_child("Abilities")
+	card_labels["Cost"] = find_child("Cost")
+	card_labels["Attack"] = find_child("Attack")
+	card_labels["HP"] = find_child("HP")
 
 	card_label_min_sizes["Name"] = Vector2(CFConst.CARD_SIZE.x - 4, 19)
 	card_label_min_sizes["Type"] = Vector2(CFConst.CARD_SIZE.x - 4, 13)
@@ -19,7 +19,7 @@ func _ready() -> void:
 	card_label_min_sizes["HP"] = Vector2(16, 16)
 
 	for l in card_label_min_sizes:
-		card_labels[l].rect_min_size = card_label_min_sizes[l]
+		card_labels[l].custom_minimum_size = card_label_min_sizes[l]
 
 	for label in card_labels:
 		match label:
@@ -30,7 +30,7 @@ func _ready() -> void:
 			_:
 				original_font_sizes[label] = 16
 
-	card_owner.connect("state_changed", self, "_on_card_state_changed")
+	card_owner.connect("state_changed", Callable(self, "_on_card_state_changed"))
 
 
 func _on_card_state_changed(_card, _old_state, new_state) -> void:
@@ -51,7 +51,7 @@ func load_monster_art() -> void:
 	if _monster_art_loaded:
 		return
 	var sprite_path: String = card_owner.properties.get("_Sprite", "")
-	if sprite_path.empty():
+	if sprite_path.is_empty():
 		return
 	var texture = load(sprite_path)
 	if not texture:

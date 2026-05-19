@@ -38,7 +38,7 @@ const SET_DEFINITIONS := {
 		"_FrameCount": 8,
 		"_FPS": 8.0,
 	},
-	"Frostmantle Sprite": {
+	"Frostmantle Sprite2D": {
 		"Type": "Monster",
 		"Cost": 1,
 		"Attack": 1,
